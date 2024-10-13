@@ -2,25 +2,13 @@ package jarowinkler
 
 import "math"
 
-func max(a, b int) int {
-  if a > b {
-    return a
-  }
-  return b
-}
-
-func min(a, b int) int {
-  if a < b {
-    return a
-  }
-  return b
-}
-
-func floor(a float64) int {
-  return int(math.Floor(a))
-}
-
 // Jaro computes the Jaro similarity between two strings.
+//
+// The Jaro similarity is a measure of similarity between two strings. The
+// higher the Jaro similarity, the more similar the strings are.
+//
+// The distance is a number between 0 and 1, where 1 means exact match and 0
+// means no similarity.
 func Jaro(s1, s2 string) float64 {
   if s1 == s2 {
     return 1.0
@@ -111,5 +99,23 @@ func JaroWinkler(s1, s2 string) float64 {
   prefix = min(prefix, 4)
 
   return j + float64(prefix) * 0.1 * (1.0 - j)
+}
+
+func max(a, b int) int {
+  if a > b {
+    return a
+  }
+  return b
+}
+
+func min(a, b int) int {
+  if a < b {
+    return a
+  }
+  return b
+}
+
+func floor(a float64) int {
+  return int(math.Floor(a))
 }
 
