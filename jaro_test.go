@@ -59,7 +59,7 @@ func ExampleJaro() {
   s1 := "CRATE"
   s2 := "CRACE"
   fmt.Printf("%.4f\n", jarowinkler.Jaro(s1, s2))
-  // Output: 0.7333
+  // Output: 0.8667
 }
 
 func ExampleJaroWinkler() {
