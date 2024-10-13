@@ -1,6 +1,7 @@
 package jarowinkler_test
 
 import (
+	"fmt"
 	"math"
 	"testing"
 
@@ -54,3 +55,16 @@ func TestJaroWinkler(t *testing.T) {
   }
 }
 
+func ExampleJaro() {
+  s1 := "CRATE"
+  s2 := "TRACE"
+  fmt.Printf("%.4f\n", jarowinkler.Jaro(s1, s2))
+  // Output: 0.7333
+}
+
+func ExampleJaroWinkler() {
+  s1 := "CRATE"
+  s2 := "CRACE"
+  fmt.Printf("%.4f\n", jarowinkler.JaroWinkler(s1, s2))
+  // Output: 0.9067
+}
