@@ -39,6 +39,8 @@ func TestJaroWinkler(t *testing.T) {
     want float64
   }{
     {"", "", 1.0},
+    {"aaa", "aaa", 1.0},
+    {"aaa", "bbb", 0.0},
     {"TRATE", "TRACE", 0.906667},
     {"apple", "applet", 0.966667},
   }
