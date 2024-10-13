@@ -53,9 +53,11 @@ goos: linux
 goarch: amd64
 pkg: github.com/a-poor/jarowinkler
 cpu: Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
-BenchmarkJaro-8                  2762078               373.2 ns/op
-BenchmarkJaroWinkler-8           2600772               480.6 ns/op
+BenchmarkJaro-8              	 2647617	       406.6 ns/op
+BenchmarkJaroWinkler-8       	 2698708	       434.8 ns/op
+BenchmarkJaroWinklerLong-8   	  111476	     10478 ns/op
 PASS
-ok      github.com/a-poor/jarowinkler   3.221s
+ok  	github.com/a-poor/jarowinkler	4.454s
 ```
+
 
