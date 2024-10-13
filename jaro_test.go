@@ -32,4 +32,23 @@ func TestJaro(t *testing.T) {
 }
 
 
+func TestJaroWinkler(t *testing.T) {
+  round := 6
+  cases := []struct {
+    s1, s2 string
+    want float64
+  }{
+    {"", "", 1.0},
+    {"TRATE", "TRACE", 0.906667},
+    {"apple", "applet", 0.966667},
+  }
+
+  for i, c := range cases {
+    got := jarowinkler.JaroWinkler(c.s1, c.s2)
+    ground := roundTo(got, round)
+    if ground != c.want {
+      t.Errorf("[%02d] JaroWinkler(%q, %q) == %f, want %f", i, c.s1, c.s2, ground, c.want)
+    }
+  }
+}
 

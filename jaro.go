@@ -79,3 +79,29 @@ func Jaro(s1, s2 string) float64 {
     float64(match) ) / 3.0
 }
 
+
+func JaroWinkler(s1, s2 string) float64 {
+  j := Jaro(s1, s2)
+  if j < 0.7 {
+    return j
+  }
+
+  rs1 := []rune(s1)
+  rs2 := []rune(s2)
+
+  l1 := len(rs1)
+  l2 := len(rs2)
+  prefix := 0
+
+  for i := 0; i < min(l1, l2); i++ {
+    if rs1[i] == rs2[i] {
+      prefix++
+    } else {
+      break
+    }
+  }
+  prefix = min(prefix, 4)
+
+  return j + float64(prefix) * 0.1 * (1.0 - j)
+}
+
