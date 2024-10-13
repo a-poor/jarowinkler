@@ -6,11 +6,13 @@
 
 An implementation of the Jaro-Winkler string similarity algorithm in Go.
 
-## Usage
+## Installation
 
 ```sh
 go get github.com/a-poor/jarowinkler
 ```
+
+## Usage
 
 ```go
 package main
@@ -38,4 +40,22 @@ Based on the following implementations:
 - https://en.wikipedia.org/wiki/Jaro-Winkler_distance
 - https://safjan.com/jaro-winkler-similarity
 - https://tech.popdata.org/speeding-up-Jaro-Winkler-with-rust-and-bitwise-operations
+
+## Benchmarks
+
+There are (very basic) benchmarks for the `Jaro` and `JaroWinkler` functions,
+though they don't compare the performance of this implementation to other text
+similarity algorithms.
+
+```
+$ go test -bench=.
+goos: linux
+goarch: amd64
+pkg: github.com/a-poor/jarowinkler
+cpu: Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+BenchmarkJaro-8                  2762078               373.2 ns/op
+BenchmarkJaroWinkler-8           2600772               480.6 ns/op
+PASS
+ok      github.com/a-poor/jarowinkler   3.221s
+```
 

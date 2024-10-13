@@ -55,6 +55,22 @@ func TestJaroWinkler(t *testing.T) {
   }
 }
 
+func BenchmarkJaro(b *testing.B) {
+  s1 := "CRATE"
+  s2 := "CRACE"
+  for i := 0; i < b.N; i++ {
+    jarowinkler.Jaro(s1, s2)
+  }
+}
+
+func BenchmarkJaroWinkler(b *testing.B) {
+  s1 := "CRATE"
+  s2 := "CRACE"
+  for i := 0; i < b.N; i++ {
+    jarowinkler.JaroWinkler(s1, s2)
+  }
+}
+
 func ExampleJaro() {
   s1 := "CRATE"
   s2 := "CRACE"
@@ -68,3 +84,5 @@ func ExampleJaroWinkler() {
   fmt.Printf("%.4f\n", jarowinkler.JaroWinkler(s1, s2))
   // Output: 0.9067
 }
+
+
